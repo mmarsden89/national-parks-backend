@@ -59,13 +59,11 @@ router.get("/users/:nickname", (req, res, next) => {
 });
 
 router.patch("/users/:nickname", (req, res, next) => {
-  console.log("req.body", req.body);
   const userList = req.body.user;
 
   User.findOne({ nickname: req.params.nickname })
     .then(handle404)
     .then((user) => {
-      console.log("user heree --->", user);
       return user.update(userList);
     })
     .then((user) => res.sendStatus(204))
