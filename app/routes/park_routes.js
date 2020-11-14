@@ -24,7 +24,6 @@ const router = express.Router();
 // INDEX
 // GET /parks
 router.get("/parks", (req, res, next) => {
-  console.log("are we getting here?");
   Park.find()
     .then((parks) => {
       // `parks` will be an array of Mongoose documents
